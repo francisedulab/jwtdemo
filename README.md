@@ -1,5 +1,9 @@
 # JWT DEMO
 
+## Install Pacakges
+``` npm i express ```
+``` npm i jsonwebtoken ```
+
 ## How To USe
 
 - Clone the project.
@@ -11,12 +15,11 @@ const jwt = require('jsonwebtoken');                           //Import jsonwebt
 const app = express();
 const Secreatkey = "SecreatKey";
 
-app.get('/', (req, resp) => {                                  // Sample API
-    resp.json({
+ app.get('/', (req, resp) => {                                //Sample API                     
+    resp.json({              
         message: "A simple API"
     })
 })
-
 app.post('/Login', (req, resp) => {
     // Mock user
     const user = {
