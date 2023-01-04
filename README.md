@@ -12,18 +12,18 @@
 
 ### Importing express and jsonwebtoken
 
-```
+```sh
    const express = require('express');
    const jwt = require('jsonwebtoken');
    ``` 
    
 ### Calls the express function   
-```
+```sh
 const app = express();
 ```
 
 ### Created Simple api to check the routing is working properly.
-```
+```sh
 app.get('/api', (req, res) => {
   res.json({
     message: 'Welcome to the API'
@@ -32,7 +32,7 @@ app.get('/api', (req, res) => {
 app.listen(5000, () => console.log('Server started on port 5000'));
 ```
 ### Created  a post method API For Login With Mock User Data
-```
+```sh
 app.post('/api/login', (req, res) => {
     const user = {
     id: 1, 
@@ -42,7 +42,7 @@ app.post('/api/login', (req, res) => {
     }
 ```
  ###   Signing a token with 3 minute of expiration
-    ```
+    ```sh
 jwt.sign({user}, 'secretkey', { expiresIn: '3000s' }, (err, token) => {
     console.log("login token => ",token);
     res.json({
@@ -53,7 +53,7 @@ jwt.sign({user}, 'secretkey', { expiresIn: '3000s' }, (err, token) => {
 ```
 
 ### verify the Token 
-```
+```sh
 function verifyToken(req, res, next) {
     const bearerHeader = req.headers['authorization'];
   console.log("bearerHeader =>",bearerHeader);
@@ -72,7 +72,7 @@ function verifyToken(req, res, next) {
 ```
 
 ###  Getting User Data Using Login Token
-```
+```sh
 app.post('/api/createPosts', verifyToken, (req, res) => {  
     console.log("token => ",req.token);
   jwt.verify(req.token, 'secretkey', (err, authData) => {
@@ -98,7 +98,7 @@ app.post('/api/createPosts', verifyToken, (req, res) => {
 - Change directory and npm install
 
 ## Full Code Look Like 
-```
+```sh
 const express = require('express');
 const jwt = require('jsonwebtoken');
 
