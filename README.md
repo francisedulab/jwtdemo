@@ -42,7 +42,7 @@ app.post('/api/login', (req, res) => {
     }
 ```
  ###   Signing a token with 3 minute of expiration
-    ```sh
+```sh
 jwt.sign({user}, 'secretkey', { expiresIn: '3000s' }, (err, token) => {
     console.log("login token => ",token);
     res.json({
